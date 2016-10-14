@@ -53,6 +53,7 @@ contexts:
         - include: low
         - include: high
         - include: critical
+        - include: raw
     - match: ^＿+$
       scope: meta.punctuation.archive.todo
     - match: '^\s*---.{3,5}---+$'
@@ -97,3 +98,6 @@ contexts:
       scope: todo.url
       captures:
         1: punctuation.definition.url
+  raw:
+    - match: '(`+)([^`]|(?!(?<!`)\1(?!`))`)*+(\1)'
+      scope: markup.raw.inline
